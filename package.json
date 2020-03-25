@@ -1,11 +1,11 @@
 {
-  "name": "user-registration-api",
+  "name": "ws-node",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "env-cmd -f ./.env nodemon src/app.js"
   },
-  "author": "Frank Atukunda",
+  "author": "Gaston Sepulveda",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
