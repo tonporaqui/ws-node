@@ -20,10 +20,19 @@ const userSchema = mongoose.Schema({
             }
         }
     },
+    rut: {
+        type: String,
+        required: true,
+        minLength: 13
+    },
     password: {
         type: String,
         required: true,
         minLength: 7
+    },
+    perfil:{
+        type: String,
+        required: true,
     },
     tokens: [{
         token: {
@@ -31,6 +40,8 @@ const userSchema = mongoose.Schema({
             required: true
         }
     }]
+},{
+    collection: 'usuario',
 })
 
 userSchema.pre('save', async function (next) {

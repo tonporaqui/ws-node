@@ -4,9 +4,6 @@ const auth = require('../middleware/auth')
 
 const router = express.Router()
 
-router.get('/', async (req,res) =>{
-    res.send("Ok, estas en la super app !!!");
-});
 
 router.post('/users', async (req, res) => {
     // Create a new user
