@@ -9,6 +9,10 @@ const userSchema = mongoose.Schema({
         required: true,
         trim: true
     },
+    nested: {
+        firstName: { type: String },
+        lastName: { type: String }
+    },
     email: {
         type: String,
         required: true,
@@ -34,12 +38,38 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    pictur:{
+        data: Buffer, 
+        contentType: String 
+    },
     tokens: [{
         token: {
             type: String,
             required: true
         }
-    }]
+    }],
+    direccion:{
+        nombreCalle:{
+            type: String
+        },
+        numeracion:{
+            type:String
+        },
+        comuna:{
+            type: String
+        },
+        region:{
+            type:String
+        },
+        pais:{
+            type: String
+        }
+    },
+    status:{
+        type: Number, 
+        min: 0, 
+        max: 2 
+    }
 },{
     collection: 'usuario',
 })

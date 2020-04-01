@@ -1,23 +1,35 @@
 const mongoose = require('mongoose')
 
 const oficioSchema = mongoose.Schema({
-    _idusuario: String,
+    _idusuario: {
+        type: String,
+        required: true,
+        unique: true,
+    },
     oficios:[
         {
             nombre: String,
             descripcion: String,
-            horas: String,
-            adjuntos: [{
-                adjunto: String,
-            }],
-            sectores:[
-                {
-                    comuna: String,
-                    cod: String
-                }
-            ]
+            valorHora: String
         }
-    ]
+    ],
+    sectores:[
+        {
+            comuna: String
+        }
+    ],
+    certificados:[{
+        nombre:{
+            type: String
+        },
+        descripcion:{
+            type: String
+        },
+        adjunto:{
+            type: Buffer,
+            contentType: String
+        }
+    }]
 },
 {
     collection: 'oficio',
