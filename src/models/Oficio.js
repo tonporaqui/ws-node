@@ -4,16 +4,25 @@ const oficioSchema = mongoose.Schema({
     _idusuario: String,
     oficios:[
         {
-            nombre: String,
-            descripcion: String,
-            horas: String,
-            adjuntos: [{
-                adjunto: String,
-            }],
+            nombre: {
+                type: String,
+                require: true
+            },
+
+            descripcion: {
+                type: String,
+                require: true
+            },
+            horas: {
+                type: String,
+                require: true
+            },
             sectores:[
                 {
-                    comuna: String,
-                    cod: String
+                    comuna: {
+                        type: String,
+                        require: true
+                    }
                 }
             ]
         }

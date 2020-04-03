@@ -39,7 +39,14 @@ const userSchema = mongoose.Schema({
             type: String,
             required: true
         }
-    }]
+    }],
+    status:{
+        type: Number
+    },
+    imagen:{ 
+        data: Buffer, 
+        contentType: String 
+    }
 },{
     collection: 'usuario',
 })
