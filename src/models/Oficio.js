@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
 const oficioSchema = mongoose.Schema({
-    _idusuario: String,
+    _idusuario: {
+        type: String,
+        required: true,
+        unique: true,
+    },
     oficios:[
         {
             nombre: {
@@ -26,7 +30,7 @@ const oficioSchema = mongoose.Schema({
                 }
             ]
         }
-    ]
+    ],
 },
 {
     collection: 'oficio',
