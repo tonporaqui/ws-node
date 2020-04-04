@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import { Schema, model } from 'mongoose'
 
-const perfilSchema = mongoose.Schema({
+const perfilSchema = Schema({
         nombre: String,
         descripcion: String,
     },
@@ -20,6 +20,6 @@ perfilSchema.methods.getAllPerfil = async () => {
     return res
 }
 
-const Perfil = mongoose.model('perfil', perfilSchema)
+const Perfil = model('perfil', perfilSchema)
 
-module.exports = Perfil
+export default Perfil

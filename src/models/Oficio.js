@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import { Schema, model } from 'mongoose'
 
-const oficioSchema = mongoose.Schema({
+const oficioSchema = Schema({
     _idusuario: {
         type: String,
         required: true,
@@ -10,22 +10,22 @@ const oficioSchema = mongoose.Schema({
         {
             nombre: {
                 type: String,
-                require: true
+                required: true
             },
 
             descripcion: {
                 type: String,
-                require: true
+                required: true
             },
             horas: {
                 type: String,
-                require: true
+                required: true
             },
             sectores:[
                 {
                     comuna: {
                         type: String,
-                        require: true
+                        required: true
                     }
                 }
             ]
@@ -53,6 +53,6 @@ oficioSchema.methods.getAllOficioByIdUsuario = async (_idusuario) => {
     return res
 }
 
-const Oficio = mongoose.model('oficio', oficioSchema)
+const Oficio = model('oficio', oficioSchema)
 
-module.exports = Oficio
+export default Oficio
