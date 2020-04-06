@@ -42,7 +42,7 @@ ContactoSchema.methods.getContactoByidProfesional = async (_idProfesional) => {
     return res
 }
 
-ContactoSchema.methods.getContactoByidProfesional = async (_idUsuario) => {
+ContactoSchema.methods.getContactoByidContacta = async (_idUsuario) => {
     //trae el contacto por el id de usuario contacta
     const res = await Contacto.findOne({'_idUsuarioContacta' :  _idUsuario })
     return res
