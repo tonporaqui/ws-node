@@ -14,7 +14,7 @@ router.post('/perfil', async (req, res) => {
         const rest = await perfil.addPerfil()
         res.status(201).send(rest)
     } catch (error) {
-        res.status(400).send('Upsi: ' + error)
+        res.status(400).send({mensaje:'Error al crear el perfil', error: error })
     }
 })
 
@@ -25,7 +25,7 @@ router.get('/perfil/all', async (req, res) => {
         const rest = await perfil.getAllPerfil()
         res.status(201).send(rest)
     } catch (error) {
-         res.status(400).send('Upsi: ' + error)
+         res.status(400).send({mensaje:'Error al traer los perfiles', error: error })
     }
 })
 

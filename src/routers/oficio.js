@@ -10,7 +10,7 @@ router.post('/oficio', async (req, res) => {
         const rest = await oficio.addOficio()
         res.status(201).send(rest)
     } catch (error) {
-        res.status(400).send('Upsi: ' + error)
+        res.status(400).send({mensaje:'Error al crear usuario', error: error })
     }
 })
 
@@ -21,7 +21,7 @@ router.post('/oficio/uid', async (req, res) => {
         const rest = await Oficio.getAllOficioByIdUsuario(_idusuario)
         res.status(201).send(rest)
     } catch (error) {
-        res.status(400).send('Upsi: ' + error)
+        res.status(400).send({mensaje:'Error, no se encontro lo buscado', error: error })
     }
 })
 router.get('/oficios/all', async (req, res) => {
@@ -31,7 +31,7 @@ router.get('/oficios/all', async (req, res) => {
         const rest = await perfil.getAllOficio()
         res.status(201).send(rest)
     } catch (error) {
-         res.status(400).send('Upsi: ' + error)
+         res.status(400).send({mensaje:'Error, no se encontro lo buscado', error: error })
     }
 })
 
