@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose'
+const mongoose = require('mongoose')
 
-const oficioSchema = Schema({
+const oficioSchema = mongoose.Schema({
     _idusuario: {
         type: String,
         required: true,
@@ -53,6 +53,6 @@ oficioSchema.methods.getAllOficioByIdUsuario = async (_idusuario) => {
     return res
 }
 
-const Oficio = model('oficio', oficioSchema)
+const Oficio = mongoose.model('oficio', oficioSchema)
 
-export default Oficio
+module.exports = Oficio

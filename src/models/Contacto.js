@@ -1,6 +1,6 @@
-import { Schema,model  } from "mongoose";
+const mongoose = require('mongoose')
 
-const ContactoSchema = Schema({
+const ContactoSchema = mongoose.Schema({
     _idUsuarioContacta: {
         type: String,
         required: true
@@ -48,6 +48,6 @@ ContactoSchema.methods.getContactoByidContacta = async (_idUsuario) => {
     return res
 }
 
-const Contacto = model('contacto', ContactoSchema)
+const Contacto = mongoose.model('contacto', ContactoSchema)
 
-export default Contacto
+module.exports = Contacto

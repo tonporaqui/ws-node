@@ -1,6 +1,6 @@
-import {Schema,model} from 'mongoose';
+const mongoose = require('mongoose')
 
-const TagOficioSchema = Schema({
+const TagOficioSchema = mongoose.Schema({
     nombre:{
         type: String,
         required: true
@@ -30,6 +30,6 @@ const res = await TagOficio.find( )
 return res
 }
 
-const TagOficio = model('tagOficio', TagOficioSchema)
+const TagOficio = mongoose.model('tagOficio', TagOficioSchema)
 
-export default TagOficio
+module.exports = TagOficio

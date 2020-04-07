@@ -1,6 +1,6 @@
-import { Schema,model } from "mongoose";
+const mongoose = require('mongoose')
 
-const ResueltoSchema = Schema({
+const ResueltoSchema = mongoose.Schema({
     _idTrabajo: {
         type: String,
         required: true
@@ -31,6 +31,6 @@ ResueltoSchema.methods.getResueltoByidTrabajo = async (_idTrabajo) => {
     return res
 }
 
-const Resuelto = model('resuelto', ResueltoSchema)
+const Resuelto = mongoose.model('resuelto', ResueltoSchema)
 
-export default Resuelto
+module.exports =  Resuelto

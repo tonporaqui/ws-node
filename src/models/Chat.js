@@ -1,6 +1,6 @@
-import { Schema,model  } from "mongoose";
+const mongoose = require('mongoose')
 
-const ChatSchema = Schema({
+const ChatSchema = mongoose.Schema({
     _idContacto: {
         type: String,
         required: true
@@ -35,6 +35,6 @@ ChatSchema.methods.getChatByidContacto = async (_idContacto) => {
 }
 
 
-const Chat = model('chat', ChatSchema)
+const Chat = mongoose.model('chat', ChatSchema)
 
-export default Chat
+module.exports = Chat

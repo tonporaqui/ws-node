@@ -1,6 +1,6 @@
-import {Schema,model} from 'mongoose';
+const mongoose = require('mongoose')
 
-const CertificacionSchema = Schema({
+const CertificacionSchema = mongoose.Schema({
     _idUsuario:{
         type: String,
         required: true
@@ -34,6 +34,6 @@ CertificacionSchema.methods.getCertificacionByIdUsuario = async (_idUsuario) => 
     return res
 }
 
-const Certificacion = model('certificacion', CertificacionSchema)
+const Certificacion = mongoose.model('certificacion', CertificacionSchema)
 
-export default Certificacion
+module.exports = Certificacion

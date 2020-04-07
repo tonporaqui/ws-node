@@ -1,6 +1,6 @@
-import { Schema,model } from "mongoose";
+const mongoose = require('mongoose')
 
-const ComentarioSchema = Schema({
+const ComentarioSchema = mongoose.Schema({
     _idTrabajo:{
         type: String,
         required: true
@@ -29,6 +29,6 @@ ComentarioSchema.methods.getComentarioByidTrabajo = async (_idTrabajo) => {
     return res
 }
 
-const Comentario = model('comentario', ResueltoSchema)
+const Comentario = mongoose.model('comentario', ComentarioSchema)
 
-export default Comentario
+module.exports = Comentario

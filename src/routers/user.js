@@ -3,10 +3,56 @@ const User = require('../models/User')
 const auth = require('../middleware/auth')
 
 const router = express.Router()
+/**
+ * @swagger
+ *
+ * definitions:
+ *   NewUser:
+ *     type: object
+ *     required:
+ *       - username
+ *       - password
+ *     properties:
+ *       username:
+ *         type: string
+ *       password:
+ *         type: string
+ *         format: password
+ *   User:
+ *     allOf:
+ *       - $ref: '#/definitions/NewUser'
+ *       - required:
+ *         - id
+ *       - properties:
+ *         id:
+ *           type: integer
+ *           format: int64
+ */
 
 
+/**
+ * @swagger
+ *
+ * /users:
+ *   post:
+ *     description: Creates a user
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: user
+ *         description: User object
+ *         in:  body
+ *         required: true
+ *         type: string
+ *         schema:
+ *           $ref: '#/definitions/NewUser'
+ *     responses:
+ *       200:
+ *         description: users
+ *         schema:
+ *           $ref: '#/definitions/User'
+ */
 router.post('/users', async (req, res) => {
-    // Create a new user
     try {
         const user = new User(req.body)
         await user.save()
@@ -16,7 +62,21 @@ router.post('/users', async (req, res) => {
         res.status(400).send('Error al crear usuario: ' + error)
     }
 })
-
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     description: Returns users
+ *     produces:
+ *      - application/json
+ *     responses:
+ *       200:
+ *         description: users
+ *         schema:
+ *           type: array
+ *           items:
+ *             $ref: '#/definitions/User'
+ */
 router.post('/users/login', async(req, res) => {
     //Login a registered user
     try {
